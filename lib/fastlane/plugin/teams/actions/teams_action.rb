@@ -7,32 +7,23 @@ module Fastlane
         payload = {
           "@type" => "MessageCard",
           "@context" => "https://schema.org/extensions",
-          "summary" => "Issue 176715375",
-          "themeColor" => "0078D7",
-          "title" => "iOS Build",
+          "summary" => params[:title],
+          "themeColor" => params[:theme_color],
+          "title" => params[:title],
           "sections" => [
             {
-              
-              "facts" => [
-                        {
-                            "name" => "Version:",
-                            "value" => "4.2.1 (12312312312)"
-                        },
-                {
-                  "name" => "Type",
-                  "value" => "UAT"
-                }
-              ]
+              "text" => params[:message],
+              "facts" => params[:facts]
             }
           ],
           "potentialAction" => [
             {
               "@type" => "OpenUri",
-              "name" => "get build",
+              "name" => "Get build",
               "targets" => [
                 {
                   "os" => "default",
-                  "uri" => "http://..."
+                  "uri" => params[:download_url]
                 }
               ]
             }
