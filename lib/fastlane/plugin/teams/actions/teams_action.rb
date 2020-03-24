@@ -12,7 +12,7 @@ module Fastlane
           "title" => params[:title],
           "summary" => params[:title],
           "sections" => [ { "text" => params[:message], "facts" => params[:facts] } ],
-          "actions" => [{
+          "potentialAction" => [{
             "@type"=> "HttpPOST",
             "name"=> "Add comment",
             "target"=> "http://example.org"
