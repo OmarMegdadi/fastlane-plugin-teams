@@ -11,7 +11,12 @@ module Fastlane
           "themeColor" => params[:theme_color],
           "title" => params[:title],
           "summary" => params[:title],
-          "sections" => [ { "text" => params[:message], "facts" => params[:facts] } ]
+          "sections" => [ { "text" => params[:message], "facts" => params[:facts] } ],
+          "actions" => [{
+            "@type"=> "HttpPOST",
+            "name"=> "Add comment",
+            "target"=> "http://example.org"
+          }]
         }
 
         json_headers = { 'Content-Type' => 'application/json' }
