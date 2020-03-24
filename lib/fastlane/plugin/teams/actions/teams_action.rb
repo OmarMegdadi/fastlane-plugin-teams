@@ -4,24 +4,39 @@ module Fastlane
       def self.run(params)
         require 'net/http'
         require 'uri'
-
         payload = {
-          "@type" => "MessageCard", 
-          "@context" => "http://schema.org/extensions",
-          "themeColor" => params[:theme_color],
-          "title" => params[:title],
-          "summary" => params[:title],
-          "sections" => [ { "text" => params[:message], "facts" => params[:facts] } ],
-          "potentialAction" => [{
-            "@type"=> "OpenUri",
-            "name"=> "show version",
-            "targets"=> [
-              {
-                "os" => "default",
-                "uri" => "http://example.org"
-              }
-            ] 
-          }]
+          "@type" => "MessageCard",
+          "@context" => "https://schema.org/extensions",
+          "summary" => "Issue 176715375",
+          "themeColor" => "0078D7",
+          "title" => "iOS Build",
+          "sections" => [
+            {
+              
+              "facts" => [
+                        {
+                            "name" => "Version:",
+                            "value" => "4.2.1 (12312312312)"
+                        },
+                {
+                  "name" => "Type",
+                  "value" => "UAT"
+                }
+              ]
+            }
+          ],
+          "potentialAction" => [
+            {
+              "@type" => "OpenUri",
+              "name" => "get build",
+              "targets" => [
+                {
+                  "os" => "default",
+                  "uri" => "http://..."
+                }
+              ]
+            }
+          ]
         }
 
         json_headers = { 'Content-Type' => 'application/json' }
