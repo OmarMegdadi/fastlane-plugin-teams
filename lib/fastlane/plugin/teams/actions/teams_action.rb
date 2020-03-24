@@ -13,9 +13,14 @@ module Fastlane
           "summary" => params[:title],
           "sections" => [ { "text" => params[:message], "facts" => params[:facts] } ],
           "potentialAction" => [{
-            "@type"=> "HttpPOST",
-            "name"=> "Add comment",
-            "target"=> "http://example.org"
+            "@type"=> "OpenUri",
+            "name"=> "show version",
+            "targets"=> [
+              {
+                "os" => "default",
+                "uri" => "http://example.org"
+              }
+            ] 
           }]
         }
 
