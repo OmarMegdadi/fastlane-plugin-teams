@@ -81,7 +81,7 @@ module Fastlane
           FastlaneCore::ConfigItem.new(key: :theme_color,
                                        env_name: "FL_TEAMS_THEME_COLOR",
                                        description: "Theme color of the message card",
-                                       default_value: "0078D7")
+                                       default_value: "0078D7"),
           FastlaneCore::ConfigItem.new(key: :download_url,
                                        env_name: "FL_TEAMS_DOWNLOAD_URL",
                                        description: "download url")                             
